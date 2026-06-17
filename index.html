@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 첫번째 아이디어</title>
+    <meta name="description" content="위대한 여정의 시작, 내 첫번째 아이디어를 소개합니다.">
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Interactive Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <main class="container">
+        <div class="glass-card" id="main-card">
+            <div class="glow-effect"></div>
+            <div class="card-content">
+                <span class="badge">Idea #01</span>
+                <h1 id="main-title">내 첫번째 아이디어</h1>
+                <p class="subtitle">위대한 여정의 시작이 이곳에서 일어납니다.</p>
+                <div class="interactive-area">
+                    <button class="interactive-btn" id="spark-btn" aria-label="아이디어 불꽃 튀기기">
+                        <span class="btn-text">영감 얻기</span>
+                        <svg class="spark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2V6M12 18V22M4.22 4.22L7.05 7.05M16.95 16.95L19.78 19.78M2 12H6M18 12H22M4.22 19.78L7.05 16.95M16.95 7.05L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

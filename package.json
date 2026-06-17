@@ -1,0 +1,14 @@
+{
+  "name": "my-first-idea",
+  "version": "1.0.0",
+  "description": "화면 중앙에 '내 첫번째 아이디어'를 보여주는 프리미엄 웹 페이지",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

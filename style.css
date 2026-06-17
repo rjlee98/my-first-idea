@@ -1,0 +1,266 @@
+/* Style Sheet for '내 첫번째 아이디어' Web Page */
+
+:root {
+    /* Color Palette */
+    --bg-color: #0b0b16;
+    --card-bg: rgba(18, 18, 38, 0.45);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0ba;
+    
+    --primary-glow: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    --accent-glow: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef);
+    --btn-bg: linear-gradient(135deg, #6366f1, #a855f7);
+    --btn-hover: linear-gradient(135deg, #4f46e5, #9333ea);
+    
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --glow-shadow: rgba(139, 92, 246, 0.15);
+
+    /* Fonts */
+    --font-sans: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base Reset & Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Canvas for Interactive Particles */
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main Container Centering */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Glassmorphism Card styling */
+.glass-card {
+    position: relative;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 3.5rem 2.5rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 
+        0 20px 40px var(--shadow-color),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 40px var(--glow-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Decorative Glow Background behind the Card */
+.glow-effect {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: var(--primary-glow);
+    filter: blur(50px);
+    opacity: 0.12;
+    z-index: -1;
+    border-radius: 40px;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.glass-card:hover .glow-effect {
+    opacity: 0.22;
+}
+
+/* Card Content Typography */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Badge */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.15);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    margin-bottom: 0.5rem;
+    animation: pulseBadge 2s infinite;
+}
+
+/* Main Centered Text */
+h1#main-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    background: var(--primary-glow);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 4s linear infinite;
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+h1#main-title:hover {
+    transform: scale(1.03);
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 320px;
+}
+
+/* Interactive Area and Button */
+.interactive-area {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.interactive-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--btn-bg);
+    border: none;
+    color: var(--text-primary);
+    padding: 0.85rem 1.8rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.interactive-btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+}
+
+.interactive-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+.spark-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.5s ease;
+}
+
+.interactive-btn:hover .spark-icon {
+    transform: rotate(180deg);
+}
+
+/* Footer Section */
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    z-index: 2;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.05em;
+}
+
+/* Keyframes Animations */
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulseBadge {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
+    }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 2.5rem 1.5rem;
+    }
+    h1#main-title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
+    }
+}
