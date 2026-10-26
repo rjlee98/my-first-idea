@@ -1,20 +1,25 @@
-/* Style Sheet for '내 첫번째 아이디어' Web Page */
+/* Style Sheet for '내 첫번째 아이디어' Web Page - Premium Blue Harmony Edition */
 
 :root {
-    /* Color Palette */
-    --bg-color: #0b0b16;
-    --card-bg: rgba(18, 18, 38, 0.45);
-    --card-border: rgba(255, 255, 255, 0.08);
+    /* Blue Harmony Color Palette */
+    --bg-color: #050a18;
+    --card-bg: rgba(10, 20, 42, 0.65);
+    --card-border: rgba(56, 189, 248, 0.2);
     --text-primary: #ffffff;
-    --text-secondary: #a0a0ba;
+    --text-secondary: #94a3b8;
     
-    --primary-glow: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-    --accent-glow: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef);
-    --btn-bg: linear-gradient(135deg, #6366f1, #a855f7);
-    --btn-hover: linear-gradient(135deg, #4f46e5, #9333ea);
+    --primary-blue: #38bdf8;
+    --deep-blue: #1d4ed8;
+    --vivid-blue: #2563eb;
+    --cyan-glow: #00f2fe;
+
+    --primary-glow: linear-gradient(135deg, #1d4ed8, #2563eb, #38bdf8, #00f2fe);
+    --text-gradient: linear-gradient(135deg, #93c5fd 0%, #38bdf8 35%, #60a5fa 70%, #2563eb 100%);
+    --btn-bg: linear-gradient(135deg, #2563eb, #0284c7);
+    --btn-hover: linear-gradient(135deg, #1d4ed8, #0ea5e9);
     
-    --shadow-color: rgba(0, 0, 0, 0.5);
-    --glow-shadow: rgba(139, 92, 246, 0.15);
+    --shadow-color: rgba(2, 6, 23, 0.7);
+    --glow-shadow: rgba(56, 189, 248, 0.3);
 
     /* Fonts */
     --font-sans: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -30,6 +35,10 @@
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.18), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.12), transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(29, 78, 216, 0.15), transparent 55%);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -58,7 +67,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    padding: 20px;
+    padding: 24px;
     width: 100%;
 }
 
@@ -66,40 +75,41 @@ body {
 .glass-card {
     position: relative;
     background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--card-border);
-    border-radius: 24px;
-    padding: 3.5rem 2.5rem;
-    max-width: 480px;
+    border-radius: 28px;
+    padding: 4rem 3rem;
+    max-width: 620px;
     width: 100%;
     text-align: center;
     box-shadow: 
-        0 20px 40px var(--shadow-color),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 25px 50px -12px var(--shadow-color),
+        0 0 35px rgba(37, 99, 235, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(0);
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     animation: floatCard 6s ease-in-out infinite;
 }
 
 .glass-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        0 0 40px var(--glow-shadow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 35px 70px rgba(0, 0, 0, 0.7),
+        0 0 50px var(--glow-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 /* Decorative Glow Background behind the Card */
 .glow-effect {
     position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
+    top: -12%;
+    left: -12%;
+    width: 124%;
+    height: 124%;
     background: var(--primary-glow);
-    filter: blur(50px);
-    opacity: 0.12;
+    filter: blur(60px);
+    opacity: 0.18;
     z-index: -1;
     border-radius: 40px;
     pointer-events: none;
@@ -107,7 +117,7 @@ body {
 }
 
 .glass-card:hover .glow-effect {
-    opacity: 0.22;
+    opacity: 0.3;
 }
 
 /* Card Content Typography */
@@ -115,55 +125,61 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.6rem;
 }
 
 /* Badge */
 .badge {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #a855f7;
-    background: rgba(168, 85, 247, 0.15);
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    margin-bottom: 0.5rem;
-    animation: pulseBadge 2s infinite;
+    letter-spacing: 0.18em;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 0.4rem 1rem;
+    border-radius: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    margin-bottom: 0.25rem;
+    animation: pulseBadge 2.5s infinite;
 }
 
-/* Main Centered Text */
+/* Main Centered Text - Large Blue Font */
 h1#main-title {
-    font-size: 2.5rem;
+    font-size: clamp(3rem, 7vw, 4.2rem);
     font-weight: 900;
-    letter-spacing: -0.02em;
-    background: var(--primary-glow);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    word-break: keep-all;
+    background: var(--text-gradient);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientText 4s linear infinite;
-    cursor: default;
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.45));
+    animation: gradientText 5s linear infinite;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
 h1#main-title:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.65));
 }
 
 /* Subtitle */
 .subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.6;
     font-weight: 300;
-    max-width: 320px;
+    max-width: 420px;
+    word-break: keep-all;
 }
 
 /* Interactive Area and Button */
 .interactive-area {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     width: 100%;
 }
 
@@ -171,36 +187,37 @@ h1#main-title:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     background: var(--btn-bg);
     border: none;
     color: var(--text-primary);
-    padding: 0.85rem 1.8rem;
-    border-radius: 14px;
-    font-size: 0.95rem;
+    padding: 0.95rem 2rem;
+    border-radius: 16px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
     margin: 0 auto;
 }
 
 .interactive-btn:hover {
     background: var(--btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.6);
 }
 
 .interactive-btn:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.4);
 }
 
 .spark-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    color: #bae6fd;
     transition: transform 0.5s ease;
 }
 
@@ -216,8 +233,8 @@ footer {
 }
 
 footer p {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.8rem;
+    color: rgba(148, 163, 184, 0.4);
     letter-spacing: 0.05em;
 }
 
@@ -245,22 +262,22 @@ footer p {
 
 @keyframes pulseBadge {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
+        box-shadow: 0 0 0 8px rgba(56, 189, 248, 0);
     }
 }
 
 /* Responsive design adjustments */
 @media (max-width: 480px) {
     .glass-card {
-        padding: 2.5rem 1.5rem;
+        padding: 2.8rem 1.6rem;
     }
     h1#main-title {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
     .subtitle {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }

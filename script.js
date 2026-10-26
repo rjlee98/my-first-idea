@@ -1,12 +1,12 @@
-// Interactive Background & Sparks for '내 첫번째 아이디어' Web Page
+// Interactive Background & Sparks for '내 첫번째 아이디어' Web Page - Blue Theme
 
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 
 let particles = [];
 let sparks = [];
-const maxParticles = 60;
-const mouse = { x: null, y: null, radius: 120 };
+const maxParticles = 65;
+const mouse = { x: null, y: null, radius: 130 };
 
 // Resize Canvas
 function resizeCanvas() {
@@ -36,10 +36,10 @@ class Particle {
     reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
+        this.size = Math.random() * 2.2 + 1;
         this.speedX = Math.random() * 0.4 - 0.2;
         this.speedY = Math.random() * 0.4 - 0.2;
-        this.opacity = Math.random() * 0.5 + 0.1;
+        this.opacity = Math.random() * 0.5 + 0.15;
     }
 
     update() {
@@ -65,7 +65,7 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+        ctx.fillStyle = `rgba(56, 189, 248, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -83,14 +83,14 @@ class Spark {
         this.x = x;
         this.y = y;
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 4 + 2;
+        const speed = Math.random() * 4.5 + 2;
         this.vx = Math.cos(angle) * speed;
         this.vy = Math.sin(angle) * speed;
-        this.size = Math.random() * 3 + 2;
+        this.size = Math.random() * 3.5 + 2;
         this.alpha = 1;
         this.decay = Math.random() * 0.02 + 0.015;
-        // Color variation between indigo, magenta, and blue
-        const colors = ['#6366f1', '#a855f7', '#ec4899', '#3b82f6', '#06b6d4'];
+        // Blue & Cyan palette
+        const colors = ['#38bdf8', '#60a5fa', '#2563eb', '#0ea5e9', '#93c5fd', '#00f2fe'];
         this.color = colors[Math.floor(Math.random() * colors.length)];
     }
 
@@ -105,7 +105,7 @@ class Spark {
         ctx.save();
         ctx.globalAlpha = this.alpha;
         ctx.fillStyle = this.color;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 10;
         ctx.shadowColor = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -116,7 +116,7 @@ class Spark {
 
 // Generate Spark Burst
 function createSparks(x, y) {
-    const amount = 30;
+    const amount = 35;
     for (let i = 0; i < amount; i++) {
         sparks.push(new Spark(x, y));
     }
@@ -134,10 +134,10 @@ sparkBtn.addEventListener('click', (e) => {
     createSparks(x, y);
 
     // Dynamic title scaling on click
-    mainTitle.style.transform = 'scale(1.1)';
+    mainTitle.style.transform = 'scale(1.08)';
     setTimeout(() => {
         mainTitle.style.transform = 'none';
-    }, 150);
+    }, 180);
 });
 
 // Extra Interaction: Clicking Title also sparks!
@@ -153,10 +153,10 @@ function drawLines() {
             const dy = particles[i].y - particles[j].y;
             const distance = Math.hypot(dx, dy);
 
-            if (distance < 100) {
-                const opacity = (100 - distance) / 100 * 0.15;
-                ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
-                ctx.lineWidth = 0.5;
+            if (distance < 110) {
+                const opacity = (110 - distance) / 110 * 0.18;
+                ctx.strokeStyle = `rgba(56, 189, 248, ${opacity})`;
+                ctx.lineWidth = 0.6;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
